@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _horizontalSpeed;
+    [SerializeField] private Torch _torch;
 
     private JumpController _jumpController;
 

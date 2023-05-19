@@ -7,19 +7,29 @@ public class Torch : MonoBehaviour
 {
     [SerializeField] private float _rateOfLosingFire;
 
-    [SerializeField] private Light _torch;
+    private Light _spotLight;
 
     private void Awake()
     {
-        if (TryGetComponent(out Light torch))
+        if (TryGetComponent(out Light spotLight))
         {
-            _torch = torch;
+            _spotLight = spotLight;
         }
     }
 
     private void Update()
     {
-        _torch.spotAngle -= _rateOfLosingFire * Time.deltaTime;
+        _spotLight.spotAngle -= _rateOfLosingFire * Time.deltaTime;
+    }
+
+    public void IncreaseLight(float amount)
+    {
+        _spotLight.spotAngle += amount;
+    }
+
+    public void DecreaseLight(float amount)
+    {
+        _spotLight.spotAngle -= amount;
     }
 
 }
