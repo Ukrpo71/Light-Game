@@ -32,6 +32,9 @@ public class Torch : MonoBehaviour
         _spotLight.spotAngle -= _rateOfLosingFire * Time.deltaTime;
         _fireSlider.value = _spotLight.spotAngle / _maximumSpotAngle;
 
+        //Score равняется сохраненному огню умноженное на 10
+        GameManager.Instance.UpdateScore((int)_spotLight.spotAngle * 10);
+
         if (_isHit)
         {
             _timer += Time.deltaTime;
