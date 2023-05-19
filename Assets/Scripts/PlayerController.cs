@@ -38,14 +38,14 @@ public class PlayerController : MonoBehaviour
         else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
         {
             _slideEndPosition = touch.position;
-            DetectHorizontalSwipe();
-            DetectVerticalSwipe();
+            DetectHorizontalSlide();
+            DetectVerticalSlide();
         }
     }
 
     
 
-    private void DetectHorizontalSwipe()
+    private void DetectHorizontalSlide()
     {
         float slideDistance = Vector2.Distance(_slideStartPosition, _slideEndPosition);
 
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void DetectVerticalSwipe()
+    private void DetectVerticalSlide()
     {
         float slideDistance = Vector2.Distance(_slideStartPosition, _slideEndPosition);
 
