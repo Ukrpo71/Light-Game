@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _horizontalSpeed;
-    [SerializeField] private Torch _torch;
 
     private JumpController _jumpController;
 
@@ -81,8 +80,13 @@ public class PlayerController : MonoBehaviour
 
             if (slideDirection.y > 0.75)
             {
-                _jumpController.Jump();
+                Jump();
             }
         }
+    }
+
+    public void Jump()
+    {
+        _jumpController.Jump();
     }
 }
