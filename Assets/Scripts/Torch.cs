@@ -35,6 +35,11 @@ public class Torch : MonoBehaviour
         //Score равняется сохраненному огню умноженное на 10
         GameManager.Instance.UpdateScore((int)_spotLight.spotAngle * 10);
 
+        if (_spotLight.spotAngle < 5)
+        {
+            GameManager.Instance.PlayerLost();
+        }
+
         if (_isHit)
         {
             _timer += Time.deltaTime;
