@@ -7,7 +7,6 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _horizontalSpeed;
-    [SerializeField] private float _jumpingForce;
 
     private JumpController _jumpController;
 
