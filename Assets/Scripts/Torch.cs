@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Torch : MonoBehaviour
 {
     [SerializeField] Slider _fireSlider;
+    [SerializeField] private float _startingFireLevel = 120f;
     [SerializeField] private float _rateOfLosingFire;
     [SerializeField] private float _timeBetweenHits = 1f;
 
@@ -22,6 +23,7 @@ public class Torch : MonoBehaviour
         if (TryGetComponent(out Light spotLight))
         {
             _spotLight = spotLight;
+            _spotLight.spotAngle = _startingFireLevel;
         }
     }
 

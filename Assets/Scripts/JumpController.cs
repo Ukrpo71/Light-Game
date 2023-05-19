@@ -9,6 +9,7 @@ public class JumpController : MonoBehaviour
     private Rigidbody _rb;
 
     private bool _onGround = true;
+    private bool _forcedJumping = false;
 
     private void Awake()
     {
@@ -24,11 +25,23 @@ public class JumpController : MonoBehaviour
         }
     }
 
+    public void ForceJump()
+    {
+        if (_forcedJumping == false)
+        {
+            _onGround = true;
+            _rb.velocity = Vector3.zero;
+            Jump();
+            _forcedJumping=true;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
         {
             _onGround = true;
+            _forcedJumping = false;
         }
     }
 }
